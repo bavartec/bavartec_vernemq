@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+user="${1:-test-user1}"
+pass="${2:-test-pass1}"
+
+mosquitto_pub -d \
+  -h mqtt.bavartec.de -p 8883 \
+  --capath /etc/ssl/certs \
+  -u "$user" -P "$pass" \
+  -t 'user/'"$user"'/foo' \
+  -m 'bar'
