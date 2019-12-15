@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+username="${1:-test-user1}"
+password="${2:-test-pass1}"
+
+curl -i \
+  -H 'Content-Type: application/json' \
+  --data-binary '{"username": "'"$username"'", "password": "'"$password"'"}' \
+  https://api.mqtt.bavartec.de/auth
+echo
